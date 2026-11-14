@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Menu - Snack Amir</title>
+
+  <!-- Open Graph Meta Tags لإظهار الصورة مباشرة عند مشاركة الرابط -->
+  <meta property="og:title" content="Menu - Snack Amir">
+  <meta property="og:description" content="أكلات سريعة طازجة • الأسعار بالدرهم (MAD)">
+  <meta property="og:image" content="https://cdn.imagetourls.com/uploads/tyImg/oofOASVk.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --red: #d7261e;
+      --red-dark: #a81b15;
+      --yellow: #ffc20e;
+      --dark: #161616;
+      --cream: #fff8ec;
+      --muted: #6b6b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(
+        135deg,
+        var(--red) 0%,
+        var(--red-dark) 100%
+      );
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: var(--cream);
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+
+    .hero .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--dark);
+      font-size: 1.8rem;
+      font-weight: 900;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+
+    .hero .ar {
+      font-size: 1.4rem;
+      margin-top: 2px;
+      opacity: .95;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(255,255,255,.18);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: .9rem;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--dark);
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 14px;
+      scrollbar-width: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    }
+
+    nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav a {
+      white-space: nowrap;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #2a2a2a;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1040px;
+      margin: 36px auto 0;
+      padding: 0 16px;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .sec-head h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .sec-head .line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(
+        to left,
+        var(--yellow),
+        transparent
+      );
+    }
+
+    /* PRODUCTS GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+      );
+      gap: 20px;
+    }
+
+    /* PRODUCT CARD */
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,.07);
+      transition:
+        transform .25s,
+        box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    }
+
+    /* BIGGER IMAGE AREA */
+    .img-wrap {
+      position: relative;
+      min-height: 280px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s;
+    }
+
+    .card:hover img {
+      transform: scale(1.03);
+    }
+
+    /* PRICE */
+    .price-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: var(--yellow);
+      color: var(--dark);
+      font-weight: 900;
+      font-size: 1rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      box-shadow: 0 3px 10px rgba(0,0,0,.2);
+    }
+
+    /* PRODUCT INFO */
+    .card .body {
+      padding: 15px 16px 17px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .card .desc {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* QUANTITY */
+    .qty {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+    }
+
+    .qty button {
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .qty button:hover {
+      background: var(--red-dark);
+    }
+
+    .qty span {
+      font-weight: 800;
+      font-size: 1.1rem;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--dark);
+      color: #fff;
+      border-radius: 22px;
+      padding: 32px 22px;
+      margin: 40px auto 0;
+      max-width: 1040px;
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .contact .item {
+      text-align: center;
+    }
+
+    .contact .item .ico {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .contact .item h3 {
+      font-size: .95rem;
+      color: var(--yellow);
+      margin-bottom: 6px;
+    }
+
+    .contact .item a,
+    .contact .item p {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .contact .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact .btn.wa {
+      background: #25d366;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 28px 16px 40px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* FLOATING CART */
+    .cart {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 20;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transform: translateY(160%);
+      transition: transform .3s;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .cart.show {
+      transform: translateY(0);
+    }
+
+    .cart .info {
+      flex: 1;
+    }
+
+    .cart .info small {
+      display: block;
+      opacity: .75;
+    }
+
+    .cart .info strong {
+      font-size: 1.15rem;
+      color: var(--yellow);
+    }
+
+    .cart button {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+      padding: 16px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal .box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 26px 22px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal .box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .modal .box p {
+      color: var(--muted);
+      margin-bottom: 14px;
+      white-space: pre-line;
+      text-align: right;
+      background: var(--cream);
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .modal .box button {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .img-wrap {
+        min-height: 320px;
+      }
+
+      .card img {
+        height: 320px;
+      }
+
+      .sec-head h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (min-width: 701px) {
+      .card img {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="logo">SA</div>
+
+    <h1>Snack Amir</h1>
+
+    <div class="ar">
+      سناك الأمير
+    </div>
+
+    <span class="tag">
+      أكلات سريعة طازجة • الأسعار بالدرهم (MAD)
+    </span>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#tacos">Tacos</a>
+    <a href="#salades">Salades</a>
+    <a href="#sandwich">Sandwich</a>
+    <a href="#pizzas">Pizzas</a>
+    <a href="#burgers">Burgers</a>
+    <a href="#jus">Jus</a>
+    <a href="#contact">اتصل بنا</a>
+  </nav>
+
+  <!-- TACOS -->
+  <section id="tacos">
+    <div class="sec-head">
+      <h2>🌮 Tacos</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/bjSApxlXrm.jpg"
+               alt="Tacos Mixte">
+          <span class="price-tag">55 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Tacos Mixte</h3>
+          <div class="desc">
+            Viande hachée, poulet, charcuterie, frites,
+            fromage, sauce au choix
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/ikkQwoWvCf.jpg"
+               alt="Tacos Poulet">
+          <span class="price-tag">49 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Tacos Poulet</h3>
+          <div class="desc">
+            Poulet, frites, fromage, sauce au choix
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/6lDnzZ8U5H.jpg"
+               alt="Tacos Nuggets">
+          <span class="price-tag">55 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Tacos Nuggets</h3>
+          <div class="desc">
+            Nuggets, frites, fromage, sauce au choix
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/OoHwXWqDIf.jpg"
+               alt="Tacos Viande Hachée">
+          <span class="price-tag">49 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Tacos Viande Hachée</h3>
+          <div class="desc">
+            Viande hachée, frites, fromage, sauce au choix
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/kOQclOPOxY.jpg"
+               alt="Tacos Cordon Bleu">
+          <span class="price-tag">55 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Tacos Cordon Bleu</h3>
+          <div class="desc">
+            Tacos cordon bleu
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SALADES -->
+  <section id="salades">
+    <div class="sec-head">
+      <h2>🥗 Salades</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/674a3bP63F.jpg"
+               alt="Salade Nicoise">
+          <span class="price-tag">35 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Salade Nicoise</h3>
+          <div class="desc">
+            Thon, riz, légumes, oeufs, maïs,
+            mayonnaise chamali
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SANDWICH -->
+  <section id="sandwich">
+    <div class="sec-head">
+      <h2>🥖 Sandwich</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/NqSpY4Ipn1.jpg"
+               alt="Sandwich Mixte">
+          <span class="price-tag">40 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Sandwich Mixte</h3>
+          <div class="desc">
+            Laitue, tomate, poulet, viande hachée,
+            fromage
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/X4XMfnXS8i.jpg"
+               alt="Sandwich Thon">
+          <span class="price-tag">25 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Sandwich Thon</h3>
+          <div class="desc">
+            Laitue, tomate, riz, pommes de terre,
+            thon, fromage
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/7JDOK3Qstx.jpg"
+               alt="Sandwich Viande Hachée">
+          <span class="price-tag">33 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Sandwich Viande Hachée</h3>
+          <div class="desc">
+            Laitue, tomate, viande hachée, fromage
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/eFlT9AaRQE.jpg"
+               alt="Sandwich Poulet">
+          <span class="price-tag">33 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Sandwich Poulet</h3>
+          <div class="desc">
+            Laitue, tomate, poulet, fromage
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PIZZAS -->
+  <section id="pizzas">
+    <div class="sec-head">
+      <h2>🍕 Pizzas</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/AEBO17eXEw.jpg"
+               alt="Pizza Margarita">
+          <span class="price-tag">39 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Pizza Margarita</h3>
+          <div class="desc">
+            Sauce tomate, mozzarella
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/1fiQ5GID64.jpg"
+               alt="Pizza Thon">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Pizza Thon</h3>
+          <div class="desc">
+            Sauce tomate, mozzarella, thon, poivron
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/PIxlpoLal5.jpg"
+               alt="Pizza Viande Hachée">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Pizza Viande Hachée</h3>
+          <div class="desc">
+            Sauce tomate, mozzarella, viande hachée,
+            poivron
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/PqK7TTzJnH.jpg"
+               alt="Pizza Charcuterie">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Pizza Charcuterie</h3>
+          <div class="desc">
+            Sauce tomate, mozzarella, charcuterie
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/mB0c437Asw.jpg"
+               alt="Pizza Poulet">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Pizza Poulet</h3>
+          <div class="desc">
+            Sauce tomate, mozzarella, poulet, poivron
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BURGERS -->
+  <section id="burgers">
+    <div class="sec-head">
+      <h2>🍔 Burgers</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/EEKmtAzKuf.jpg"
+               alt="Cheese Burger">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Cheese Burger</h3>
+          <div class="desc">
+            Laitue, tomate, viande hachée, fromage
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/dOcXTs0Hp1.jpg"
+               alt="Egg Burger">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Egg Burger</h3>
+          <div class="desc">
+            Laitue, tomate, viande hachée,
+            oeuf, fromage
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/xiUd7VY97f.jpg"
+               alt="Chicken Burger">
+          <span class="price-tag">45 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Chicken Burger</h3>
+          <div class="desc">
+            Laitue, tomate, poulet, fromage
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JUS -->
+  <section id="jus">
+    <div class="sec-head">
+      <h2>🥤 Jus</h2>
+      <span class="line"></span>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/OrE2nGJnYG.jpg"
+               alt="Fraise">
+          <span class="price-tag">25 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Fraise</h3>
+          <div class="desc">
+            Fraise orange
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/jUkHEewJyN.jpg"
+               alt="Kiwi">
+          <span class="price-tag">22 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Kiwi</h3>
+          <div class="desc">
+            Kiwi à orange
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/OydrRSyn6m.jpg"
+               alt="Mangue">
+          <span class="price-tag">25 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Mangue</h3>
+          <div class="desc">
+            Mangue à l'orange
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/91tDs4gY2z.jpg"
+               alt="Banane">
+          <span class="price-tag">16 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Banane</h3>
+          <div class="desc">
+            Banane au lait
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-wrap">
+          <img src="https://yourimageshare.com/ib/nIUM9VoPAO.jpg"
+               alt="Jus Avocat">
+          <span class="price-tag">16 MAD</span>
+        </div>
+
+        <div class="body">
+          <h3>Jus Avocat</h3>
+          <div class="desc">
+            Avocat au lait
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+
+    <div class="item">
+      <div class="ico">📞</div>
+      <h3>الهاتف</h3>
+
+      <a href="tel:+212659134428">
+        +212 6 59 13 44 28
+      </a>
+
+      <br>
+
+      <a class="btn" href="tel:+212659134428">
+        اتصل الآن
+      </a>
+    </div>
+
+    <div class="item">
+      <div class="ico">💬</div>
+      <h3>واتساب</h3>
+
+      <p>اطلب بسهولة</p>
+
+      <a
+        class="btn wa"
+        href="https://wa.me/212659134428"
+      >
+        راسلنا
+      </a>
+    </div>
+
+    <div class="item">
+      <div class="ico">📍</div>
+      <h3>العنوان</h3>
+
+      <p>
+        Lot Kasbat El Amine، Rue 3<br>
+        الدار البيضاء 20190
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    الأسعار حسب قائمة Google Maps • سناك الأمير
+  </footer>
+
+  <!-- CART -->
+  <div class="cart" id="cart">
+
+    <div class="info">
+      <small id="count">0 منتجات</small>
+      <strong id="total">0 MAD</strong>
+    </div>
+
+    <button id="order">
+      اطلب عبر واتساب
+    </button>
+
+  </div>
+
+  <!-- THANK YOU MODAL -->
+  <div class="modal" id="modal">
+
+    <div class="box">
+
+      <h3>
+        شكراً لطلبك! 🙏
+      </h3>
+
+      <p id="thanks"></p>
+
+      <button id="close">
+        إغلاق
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    const PHONE = "212659134428";
+
+    const cart = {};
+
+    const cards =
+      document.querySelectorAll(".card");
+
+    cards.forEach((card, i) => {
+
+      const tag =
+        card.querySelector(".price-tag");
+
+      const name =
+        card.querySelector("h3");
+
+      if (!tag || !name) return;
+
+      const price =
+        parseInt(tag.textContent, 10);
+
+      const id = "p" + i;
+
+      cart[id] = {
+        name: name.textContent.trim(),
+        price: price,
+        qty: 0
+      };
+
+      const box =
+        document.createElement("div");
+
+      box.className = "qty";
+
+      box.innerHTML = `
+        <button type="button">−</button>
+        <span>0</span>
+        <button type="button">+</button>
+      `;
+
+      const buttons =
+        box.querySelectorAll("button");
+
+      const minus = buttons[0];
+      const plus = buttons[1];
+
+      const out =
+        box.querySelector("span");
+
+      const update = () => {
+
+        out.textContent =
+          cart[id].qty;
+
+        render();
+
+      };
+
+      minus.addEventListener("click", () => {
+
+        if (cart[id].qty > 0) {
+
+          cart[id].qty--;
+
+          update();
+
+        }
+
+      });
+
+      plus.addEventListener("click", () => {
+
+        cart[id].qty++;
+
+        update();
+
+      });
+
+      card
+        .querySelector(".body")
+        .appendChild(box);
+
+    });
+
+
+    function render() {
+
+      const items =
+        Object.values(cart)
+          .filter(p => p.qty > 0);
+
+      const total =
+        items.reduce(
+          (s, p) =>
+            s + p.price * p.qty,
+          0
+        );
+
+      const count =
+        items.reduce(
+          (s, p) =>
+            s + p.qty,
+          0
+        );
+
+      document.getElementById("total")
+        .textContent =
+        total + " MAD";
+
+      document.getElementById("count")
+        .textContent =
+        count + " منتجات";
+
+      document.getElementById("cart")
+        .classList
+        .toggle("show", count > 0);
+
+      return {
+        items,
+        total
+      };
+
+    }
+
+
+    document
+      .getElementById("order")
+      .addEventListener("click", () => {
+
+        const { items, total } =
+          render();
+
+        if (!items.length) return;
+
+        const lines =
+          items.map(p =>
+            "- " +
+            p.name +
+            " x" +
+            p.qty +
+            " = " +
+            (p.price * p.qty) +
+            " MAD"
+          );
+
+        const msg =
+          "مرحباً، أريد أن أطلب من سناك الأمير:\n" +
+          lines.join("\n") +
+          "\n\nالمجموع: " +
+          total +
+          " MAD";
+
+        window.open(
+          "https://wa.me/" +
+          PHONE +
+          "?text=" +
+          encodeURIComponent(msg),
+          "_blank"
+        );
+
+        document.getElementById("thanks")
+          .textContent =
+          "شكراً لاختيارك سناك الأمير! 🌟\n" +
+          "تم إرسال طلبك بمجموع " +
+          total +
+          " MAD.\n" +
+          "سنتواصل معك قريباً لتأكيد الطلب. بالهناء والشفاء!";
+
+        document.getElementById("modal")
+          .classList
+          .add("show");
+
+      });
+
+
+    document
+      .getElementById("close")
+      .addEventListener("click", () => {
+
+        document.getElementById("modal")
+          .classList
+          .remove("show");
+
+      });
+
+  </script>
+
+</body>
+</html>
